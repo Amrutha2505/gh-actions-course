@@ -12,4 +12,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Echo Event Type
-                run: echo "runs when a PR is raised
+                run: echo "runs when a PR is raised"

@@ -1,4 +1,4 @@
-name: 05 - 01 Event Filters and Activity Types
+name: 05 - 01 - Event Filters and Activity Types
 
 on: 
     pull_request:
@@ -12,4 +12,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   name: Echo Event Type
-                run: echo "runs when a PR is raised"
+                run: echo "Runs when a PR is raised"

@@ -1,11 +1,23 @@
 name: 06 - Contexts
 
+run-name: This is a custom run name for this workflow
+
 on: 
-    - push
-    - workflow_dispatch
+    push:
+    workflow_dispatch:
+        inputs:
+            debug:
+                type: boolean
+                default: false
+
+env:
+    MY_ENV_VAR: "This is an environment variable"
+    MY_OVERWRITTEN_ENV_VAR: "workflow"
 
 jobs:
     echo-data:
+        env:
+            MY_OVERWRITTEN_ENV_VAR: "job"
         runs-on: ubuntu-latest
         steps:
             -   name: Display information
@@ -21,3 +33,19 @@ jobs:
             -   name: Retrieve variable
                 run: | 
                     echo "Variable value is: ${{ vars.MY_VARIABLE }}"
+            -   name: Print Environment Variable
+                env:
+                    MY_OVERWRITTEN_ENV_VAR: "steps"
+                run: |
+                    echo "Environment Variable value is: ${{ env.MY_ENV_VAR }}"
+                    echo "Overwritten Environment Variable value is: ${{ env.MY_OVERWRITTEN_ENV_VAR }}"
+            -   name: Print job level environment variable
+                run: |
+                    echo "Job level Environment Variable value is: ${{ env.MY_OVERWRITTEN_ENV_VAR }}"
+    echo_data2:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Display information
+                run: |
+                    echo "Environment Variable value is: ${{ env.MY_ENV_VAR }}"
+                    echo "Overwritten Environment Variable value is: ${{ env.MY_OVERWRITTEN_ENV_VAR }}"

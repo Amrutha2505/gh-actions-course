@@ -21,7 +21,7 @@ jobs:
                 OVERWRITTEN: "step"
               run: |
                 echo "Step env var: ${{env.STEP_VAR}}"
-                echo "Step env var: $env.STEP_VAR2"
+                echo "Step env var: $STEP_VAR2"
                 echo "Job env var: ${{env.JOB_VAR}}"
                 echo "Job env var: ${{env.JOB_VAR2}}"
                 echo "Workflow env var: ${{env.WORKFLOW_VAR}}"

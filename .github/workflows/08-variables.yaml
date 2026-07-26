@@ -41,4 +41,4 @@ jobs:
         steps:
             - name: Staging environment
               run: |
-                echo "MyVariable in staging environment ${{vars.MY_VARIABLE}}
+                echo "MyVariable in staging environment ${{vars.MY_VARIABLE}}"

@@ -29,3 +29,9 @@ jobs:
             - name: Display information 2
               run: |
                 echo "Overwritten env var: ${{env.OVERWRITTEN}}"
+    echo2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print repository and environment variables
+              run: | 
+                echo "My variable: ${{vars.MY_VARIABLE}}"

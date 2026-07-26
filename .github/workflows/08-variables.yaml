@@ -35,10 +35,10 @@ jobs:
             - name: Print repository and environment variables
               run: | 
                 echo "My variable: ${{vars.MY_VARIABLE}}"
-    echo-prod:
+    echo-staging:
         runs-on: ubuntu-latest
         environment: staging
         steps:
             - name: Staging environment
               run: |
-                echo "MyVariable in staging environment ${{vars.MY_VARIABLE}}"
+                echo "My Variable in staging environment ${{vars.MY_VARIABLE}}"

@@ -27,7 +27,6 @@ jobs:
                   echo "output_status=${{inputs.build_status}}" >> "$GITHUB_OUTPUT"
                   echo "output_status1=failure" >> "$GITHUB_OUTPUT"
                   cat "$GITHUB_OUTPUT"
-                  - name: "Building"
             - name: "Print GITHUB_OUTPUT Path"
               run: |
                   echo "mistake=true" > "$GITHUB_OUTPUT"

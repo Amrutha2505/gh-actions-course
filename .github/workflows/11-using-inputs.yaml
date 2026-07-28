@@ -1,0 +1,34 @@
+name: 11 - Using Inputs
+on:
+    workflow_dispatch:
+        inputs:
+            dry-run:
+                description: Whether deploy step is required after build
+                default: true
+                type: boolean
+            target:
+                description: target environment for deployment
+                type: environment
+                required: true
+            tag:
+                description: tag for deployment
+                type: choice
+                options:
+                    - v1
+                    - v2
+                    - v3
+                required: true
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Building"
+              run: echo "Building the project..."
+    deploy:
+        runs-on: ubuntu-latest
+        environment: ${{ inputs.target }}
+        needs: build
+        steps:
+            - name: "Deploying"
+              if: ${{ inputs.dry-run == 'false' }}
+              run: echo "Deploying to the target environment with target ${{ inputs.target }} and tag ${{ inputs.tag }}..."

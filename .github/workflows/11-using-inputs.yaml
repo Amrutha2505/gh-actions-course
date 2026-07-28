@@ -30,5 +30,5 @@ jobs:
         needs: build
         steps:
             - name: "Deploying"
-              if: ${{ inputs.dry-run == 'true' }}
+              if: ${{ inputs.dry-run }}
               run: echo "Deploying to the target environment with target ${{ inputs.target }} and tag ${{ inputs.tag }}..."

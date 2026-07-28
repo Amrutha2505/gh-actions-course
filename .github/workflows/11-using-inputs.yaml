@@ -17,7 +17,7 @@ on:
                     - v1
                     - v2
                     - v3
-                required: true
+                default: v2
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -31,4 +31,4 @@ jobs:
         steps:
             - name: "Deploying"
               if: ${{ inputs.dry-run }}
-              run: echo "Deploying to the target environment with target ${{ inputs.target }} and tag ${{ inputs.tag }}..."
+              run: echo "Deploying to the target environment ${{ inputs.target }} and tag ${{ inputs.tag }}"

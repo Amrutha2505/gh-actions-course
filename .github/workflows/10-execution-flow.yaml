@@ -19,7 +19,9 @@ jobs:
               run: echo "Running Unit Tests"
             - name: Failing tests
               if: ${{ !github.event.inputs.run_tests }}
-              run: exit 1
+              run: |
+               exit 1
+               echo "This step will be skipped if run_tests is false"
     deploy-nonprod:
         runs-on: ubuntu-latest
         needs: 

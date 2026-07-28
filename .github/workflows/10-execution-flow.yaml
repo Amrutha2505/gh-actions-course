@@ -4,7 +4,7 @@ on:
         inputs:
             run_tests:
                 default: true
-                description: Whether to run workflows
+                description: Whether to run unit tests
                 type: boolean
 jobs:
     lint-build:

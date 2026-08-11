@@ -63,9 +63,6 @@ jobs:
               with: 
                 path: 13-caching/react-app/node_modules
                 key: ${{ needs.install-deps.outputs.cache-key }}
-            - name: Install dependencies
-              if: ${{ steps.cache.outputs.cache-hit != 'true'}}
-              run: npm ci
             - name: check lint
               run: echo "Checking lint..."
     build:
@@ -88,8 +85,5 @@ jobs:
               with: 
                 path: 13-caching/react-app/node_modules
                 key: ${{ needs.install-deps.outputs.cache-key }}
-            - name: Install dependencies
-              if: ${{ steps.cache.outputs.cache-hit != 'true'}}
-              run: npm ci
             - name: Build project
               run: npm run build

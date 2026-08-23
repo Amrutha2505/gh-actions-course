@@ -46,7 +46,11 @@ jobs:
           - opacity: 50
           - color: red
             shape: triangle
+          - color: red
             opacity: 75
+          - color: green
+            size: small
+            opacity: 25
     steps:
       - name: Show matrix values
         run: |
